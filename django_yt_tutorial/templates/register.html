@@ -6,5 +6,16 @@
 {% block content %}
 
 <h1>This is register page</h1>
+
+<form method="POST" style="width: 50%; margin-top: 70px; margin: auto;">
+    {% csrf_token %}
+    {% for field in form %}
+      <div class="form-group">
+        {{ field.label}}
+        {{ field }}
+      </div>
+    {% endfor %}
+    <button class="btn btn-primary" type="submit">Submit</button>
+  </form>
         
 {% endblock %}

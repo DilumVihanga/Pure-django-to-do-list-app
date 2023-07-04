@@ -1,20 +1,23 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import *
+from .forms import addTaskForm
+
 
 """ my_tasks= list() """
 
 def home(request):
     """ return HttpResponse("<h1>This is the home page</h1>") """
     obj = Tasks.objects.all()
+    createTask = addTaskForm
     if request.method == "POST":
-        title = request.POST.get("title")
-        date = request.POST.get("date")
-        time = request.POST.get("time")
-        obj = Tasks(Title=title, Date=date, Time=time)
-       
+      form=addTaskForm(request.POST)
+      if form.is_valid():
+            form.save()
+            
     context = {
         'items': obj,
+        'form': createTask,
     }
 
     """ if request.method == "POST":
@@ -32,6 +35,8 @@ def login(request):
     """ return HttpResponse("<h1>This is the login page</h1>") """
     return render(request, "login.html", {})
 
+from .forms import CreateUserForm
+
 def register(request):
-    """ return HttpResponse("<h1>This is the register page</h1>") """
-    return render(request, "register.html", {})
+    create_user = CreateUserForm()
+    return render(request, "register.html", {'form': create_user})

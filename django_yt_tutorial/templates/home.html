@@ -36,7 +36,7 @@
     {% endfor %}
   </table>
 
-  <form method="post" style="width: 60%; margin: auto;">
+<!--   <form method="post" style="width: 60%; margin: auto;">
     {% csrf_token %}
     <div class="form-group">
       <label for="title">Task Name:</label>
@@ -53,7 +53,19 @@
       <input type="time" id="time" name="time" class="form-control">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
-    <!-- Add additional form fields or submit button here if needed -->
+    
+  </form>
+ -->
+
+ <form method="POST" style="width: 50%; margin-top: 70px; margin: auto;">
+    {% csrf_token %}
+    {% for field in form %}
+      <div class="form-group">
+        {{ field.label}}
+        {{ field }}
+      </div>
+    {% endfor %}
+    <button class="btn btn-primary" type="submit">Submit</button>
   </form>
 
 {% endblock %}
