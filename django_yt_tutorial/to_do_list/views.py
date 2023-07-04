@@ -1,11 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
+my_tasks= list()
+
 def home(request):
     """ return HttpResponse("<h1>This is the home page</h1>") """
-    my_tasks = list()
-
-    my_tasks = list()
+    
 
     if request.method == "POST":
         task = request.POST.get("task")
