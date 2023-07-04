@@ -7,6 +7,12 @@ from .models import *
 def home(request):
     """ return HttpResponse("<h1>This is the home page</h1>") """
     obj = Tasks.objects.all()
+    if request.method == "POST":
+        title = request.POST.get("title")
+        date = request.POST.get("date")
+        time = request.POST.get("time")
+        obj = Tasks(Title=title, Date=date, Time=time)
+       
     context = {
         'items': obj,
     }
