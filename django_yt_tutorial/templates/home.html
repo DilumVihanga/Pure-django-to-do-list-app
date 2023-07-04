@@ -4,7 +4,7 @@
 
 
 {% block content %}
-
+<!-- 
 <h1>This is home page</h1>
 
 <form action="" method="post" autocomplete="off">
@@ -19,7 +19,22 @@
     <li>{{ task }}</li>
     {% endfor %}
 </ul>
+ -->
 
+ <table class="table table-bordered table-dark table-hover">
+    <tr>
+      <th>Title</th>
+      <th>Due Date</th>
+      <th>Time</th>
+    </tr>
+    {% for item in items %}
+    <tr>
+      <td>{{ item.title }}</td>
+      <td>{{ item.date }}</td>
+      <td>{{ item.time }}</td>
+    </tr>
+    {% endfor %}
+  </table>
 
         
 {% endblock %}
