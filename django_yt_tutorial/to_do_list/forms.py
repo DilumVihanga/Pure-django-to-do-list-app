@@ -21,7 +21,7 @@ class addTaskForm(forms.ModelForm):
 
 
 class CreateUserForm(UserCreationForm):
-    username = forms.CharField(max_length=200, label="Enter a username", widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter a username'}))
+    username = forms.CharField(max_length=20, label="Enter a username", widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter a username'}))
     email = forms.EmailField( widget=forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Enter your email'}))
     password1 = forms.CharField(label="Enter a password", widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Enter a password'}))
     password2 = forms.CharField( label="Confirm password", widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Confirm password'}))
